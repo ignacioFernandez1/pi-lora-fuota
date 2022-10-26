@@ -1,0 +1,6 @@
+[submodule "Pygate"]
+	path = Pygate
+	url = https://github.com/MarinoMtz/Pygate
+[submodule "chirpstack-docker"]
+	path = chirpstack-docker
+	url = https://github.com/chirpstack/chirpstack-docker.git
