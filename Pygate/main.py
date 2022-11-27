@@ -1,5 +1,5 @@
 from network import WLAN
-#from network import ETH
+# from network import ETH
 import time
 import socket
 import machine
@@ -35,22 +35,22 @@ print('Connecting to WiFi...', end='')
 
 # Connect to a Wifi Network
 wlan = WLAN(mode=WLAN.STA)
-wlan.connect(ssid='CLAROLOPEZ', auth=(WLAN.WPA2, "63591234"))
-#wlan.connect(ssid='chirppygate', auth=(WLAN.WPA2, "marino92"))
+wlan.connect(ssid='wifi_play', auth=(WLAN.WPA2, "living6359"))
+# #wlan.connect(ssid='chirppygate', auth=(WLAN.WPA2, "marino92"))
 
 while not wlan.isconnected():
     print('.', end='')
     time.sleep(1)
 print(" OK")
 
-#eth = ETH()
+# eth = ETH()
 
 # eth.init()
-#print('Connecting to Ethernet...',  end='')
+# print('Connecting to Ethernet...', end='')
 # while not eth.isconnected():
-#    print('.', end='')
-#    time.sleep(1)
-#print(" OK")
+#     print('.', end='')
+#     time.sleep(1)
+# print(" OK")
 
 # print(eth.ifconfig())
 #print(socket.getaddrinfo("pycom.io", 80))
