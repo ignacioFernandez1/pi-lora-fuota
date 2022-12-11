@@ -10,24 +10,25 @@ lora = LoRa(mode=LoRa.LORAWAN, region=LoRa.EU868, device_class=LoRa.CLASS_C)
 def lora_cb(lora):
     events = lora.events()
     if events & LoRa.RX_PACKET_EVENT:
+        print('RECEIVED A MESSAGE')
         if s is not None:
             frame, port = s.recvfrom(512) # longuest frame is +-220
             print(port, frame)
     if events & LoRa.TX_PACKET_EVENT:
         print("tx_time_on_air: {} ms @dr {}", lora.stats().tx_time_on_air, lora.stats().sftx)
 
-dev_eui = binascii.unhexlify('c5c65c3303799382'.replace(' ', ''))
+dev_eui = binascii.unhexlify('c5c65c3303799380'.replace(' ', ''))
 app_eui = binascii.unhexlify('00 00 00 00 00 00 00 00'.replace(' ', ''))
-app_key = binascii.unhexlify('80 4d 8b 48 50 98 62 be 9d 84 a7 db ae 7c 4a 88'.replace(' ', ''))
+app_key = binascii.unhexlify('8754db1f30f53f908109cee5f62846e6'.replace(' ', ''))
 
-mcAddr = struct.unpack(">l", binascii.unhexlify('0053cd8f'))[0]
-mcNwkKey = binascii.unhexlify('F9CEFC8DC156D1CA0C61F664B1C84725')
-mcAppKey = binascii.unhexlify('01CF92D6F28A7F7A193647739059278C')
-print('joining multicast')
-lora.join_multicast_group(mcAddr, mcNwkKey, mcAppKey)
-print('joined multicast')
+# mcAddr = struct.unpack(">l", binascii.unhexlify('0053cd8f'))[0]
+# mcNwkKey = binascii.unhexlify('F9CEFC8DC156D1CA0C61F664B1C84725')
+# mcAppKey = binascii.unhexlify('01CF92D6F28A7F7A193647739059278C')
+# print('joining multicast')
+# lora.join_multicast_group(mcAddr, mcNwkKey, mcAppKey)
+# print('joined multicast')
 
-# lora.join(activation=LoRa.OTAA, auth=(dev_eui, app_eui, app_key), timeout=0)
+lora.join(activation=LoRa.OTAA, auth=(dev_eui, app_eui, app_key), timeout=0)
 print("devEUI {}".format(binascii.hexlify(lora.mac())))
 
 
