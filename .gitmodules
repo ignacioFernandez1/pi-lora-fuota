@@ -1,6 +1,0 @@
-[submodule "chirpstack-docker"]
-	path = chirpstack-docker
-	url = https://github.com/chirpstack/chirpstack-docker.git
-[submodule "chirpstack-fuota-server"]
-	path = chirpstack-fuota-server
-	url = git@github.com:brocaar/chirpstack-fuota-server.git

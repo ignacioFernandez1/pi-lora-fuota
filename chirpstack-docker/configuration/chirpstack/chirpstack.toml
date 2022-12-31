@@ -67,6 +67,7 @@
   enabled_regions=[
     "us915_0",
     "us915_1",
+    "eu868",
   ]
 
 
@@ -82,7 +83,7 @@
   # is never exposed. Changing this secret will invalidate all login and API
   # tokens. The following command can be used to generate a random secret:
   #   openssl rand -base64 32
-  secret="you-must-replace-this"
+  secret="iO7pRnEY2DPqYbD+qfWmC5BXZcFHE13+VI1aR3G67gM="
 
 
 [integration]
